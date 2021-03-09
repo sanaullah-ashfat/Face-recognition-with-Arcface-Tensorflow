@@ -1,5 +1,4 @@
-# ArcFace Tensorflow 2
-
+# Face Recognition IBUS
 :fire: ArcFace (Additive Angular Margin Loss for Deep Face Recognition, published in CVPR 2019) implemented in Tensorflow 2.0+. This is an unofficial implementation. :fire:
 
 >  Additive Angular Margin Loss(ArcFace) has a clear geometric interpretation due to the exact correspondence to the geodesic distance on the hypersphere, and consistently outperforms the state-of-the-art and can be easily implemented with negligible computational overhead.
@@ -19,7 +18,27 @@ Offical Implementation: &nbsp; [MXNet](https://github.com/deepinsight/insightfac
 * [Benchmark and Models](#Benchmark-and-Models)
 * [References](#References)
 
+## Installation
+Create a new python virtual environment by Anaconda or just use pip in your python environment and then clone this repository as follows.
 
+## Clone this repo
+### Conda
+```
+$ conda env create -f environment.yml
+$ conda activate arcface-tf2
+
+```
+### Pip
+```
+$ pip install -r requirements.txt
+If there is any version problem for bcolz then 
+$ conda install -c conda-forge bcolz
+If there is any problem for loading tensor mode weights then downgrade 
+h5py to h5py==2.10.0 
+use command 
+$ pip install 'h5py==2.10.0' --force-reinstall
+$ pip install 'h5py==2.10.0' --force-reinstall
+```
 ## Data Preparing
 All datasets used in this repository can be found from [face.evoLVe.PyTorch's Data-Zoo](https://github.com/ZhaoJ9014/face.evoLVe.PyTorch#Data-Zoo).
 
@@ -44,24 +63,13 @@ Note:
 
 ### Testing Dataset
 
-Download [LFW](https://drive.google.com/file/d/1WO5Meh_yAau00Gm2Rz2Pc0SRldLQYigT/view?usp=sharing), [Aged30](https://drive.google.com/file/d/1AoZrZfym5ZhdTyKSxD0qxa7Xrp2Q1ftp/view?usp=sharing) and [CFP-FP](https://drive.google.com/file/d/1-sDn79lTegXRNhFuRnIRsgdU88cBfW6V/view?usp=sharing) datasets, then extract them to `/your/path/to/test_dataset`. These testing data are already binary files, so it's not necessary to do any preprocessing. The directory structure should be like bellow.
-```
-/your/path/to/test_dataset/
-    -> lfw_align_112/lfw
-        -> data/
-        -> meta/
-        -> ...
-    -> agedb_align_112/agedb_30
-        -> ...
-    -> cfp_align_112/cfp_fp
-        -> ...
-```
 
-****
 
 ## Training and Testing
 
-You can modify your own dataset path or other settings of model in [./configs/*.yaml](https://github.com/3P2S/arcface/tree/master/configs) for training and testing, which like below.
+### Training
+1. Train with data:
+You can modify your own dataset path or other settings of model in [./configs/*.yaml](https://github.com/3P2S/arcface/tree/master/configs) for training and testing, which listed below.
 
 ```python
 # general (shared both in training and testing)
@@ -93,8 +101,13 @@ Note:
 - The `is_ccrop` means doing central-cropping on both trainging and testing data or not.
 - The `binary_img` is used to choose the type of training data, which should be according to the data type you created in the [Data-Preparing](#Data-Preparing).
 
-
-### Training
+2. Custom Train:
+ - Go to the **IBUS** folder
+ - Run `custom_train.py`
+<figure>
+<img src = "Architecture/model.png">
+<figcaption>Figure 1. Project Architecture (Training Process)</figcaption>
+</figure>
 
 Here have two modes for training your model, which should be perform the same results at the end.
 ```bash
@@ -106,9 +119,11 @@ python train.py --mode="fit" --cfg_path="./configs/arc_res50.yaml"
 ```
 
 ### Testing
+For real time testing, 
+Run the `test_frame.py`
 
-You can download my trained models for testing from [Benchmark and Models](#Benchmark-and-Models) without training it yourself. 
-
+To run the whole process automatically, 
+Run `integrate.py` file.
 ```bash
 python evaluate.py 
 ```
@@ -147,7 +162,14 @@ Note:
 
 Thanks for these source codes porviding me with knowledges to complete this repository.
 
-- https://github.com/deepinsight/insightface (Official)
-    - Face Analysis Project on MXNet http://insightface.ai
-- https://github.com/peteryuX/arcface-tf2
-    - Arcface implemented in Tensorflow 2
+(https://github.com/deepinsight/insightface) (Official)
+    -Face Analysis Project on MXNet http://insightface.ai
+(https://github.com/zzh8829/yolov3-tf2)
+    -Thanks for these source codes providing me with knowledge to complete this repository.
+    -YoloV3 Implemented in TensorFlow 2.0
+(https://github.com/ZhaoJ9014/face.evoLVe.PyTorch)
+    -face.evoLVe: High-Performance Face Recognition Library based on PyTorch
+(https://github.com/luckycallor/InsightFace-tensorflow)
+    -Tensorflow implementation of InsightFace (ArcFace: Additive Angular Margin Loss for Deep Face Recognition).
+(https://github.com/dmonterom/face_recognition_TF2)
+Training a face Recognizer using ResNet50 + ArcFace in TensorFlow 2.0
