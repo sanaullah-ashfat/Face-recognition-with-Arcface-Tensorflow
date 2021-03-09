@@ -1,0 +1,8 @@
+.vscode/*
+checkpoints/*
+logs/*
+**/__pycache__/*
+**/*.tfrecord
+data/facebank/
+data/facebank.npy
+data/names.npy
