@@ -13,6 +13,9 @@ You can find original paper here [link] https://arxiv.org/abs/1801.07698
 
 Run integrate.py file. Before running, give your data path. After running that file you will be asked to choose the task that you want to do. If you want to Recognition then give input “ recognition” or if you want to save the embedding then give input “register”. Then it will automatically create embedding and save in a pickle file. 
 If you want to see the embedding from the pickle file then go to the test file then uncomment 10 to 12 lines then run.When you go for a recognition task if there is any unknown person and you want to add on your embedding file for later recognition, you will be asked when you run the integrate.py file. Press Y or y to confirm that you want and then give an ID or name then it will be added in your embedding file. 
+
+
+
 ![face](https://user-images.githubusercontent.com/41291499/128629138-39376241-88fc-4d2c-b42a-86c41287942e.png)
 
 **Models:**
