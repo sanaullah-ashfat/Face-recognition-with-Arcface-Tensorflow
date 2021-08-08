@@ -20,7 +20,7 @@ If you want to see the embedding from the pickle file then go to the test file t
 
 **Models:**
 
-Download the Pre-train model from this link [link text itself]:  https://drive.google.com/file/d/1HasWQb86s4xSYy36YbmhRELg9LBmvhvt/view?usp=sharing
+Download the Pre-train model from this link:  https://drive.google.com/file/d/1HasWQb86s4xSYy36YbmhRELg9LBmvhvt/view?usp=sharing
 Now paste it to the checkpoints folder.
 
 Test in postman:
