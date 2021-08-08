@@ -7,6 +7,8 @@ You can find original paper here [link] https://arxiv.org/abs/1801.07698
 
 
 **Working Procedure:**
+
+
 ![recognition](https://user-images.githubusercontent.com/41291499/128629156-05454773-6e33-4678-b54c-5b64f0c08851.png)
 
 Run integrate.py file. Before running, give your data path. After running that file you will be asked to choose the task that you want to do. If you want to Recognition then give input “ recognition” or if you want to save the embedding then give input “register”. Then it will automatically create embedding and save in a pickle file. 
