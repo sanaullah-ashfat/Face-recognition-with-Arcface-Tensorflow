@@ -88,11 +88,11 @@ class SAVE_EMBDED:
         embds_dict = dict(zip(nam, embd))
         # print("*********** embds_dict ************:",embds_dict)
         print("*************    Prepareing embedding for save     **************")
-        print("*************     Embedding save Successfully    **************")
+        
         with open("./embds_dict_ad.pkl", "wb") as fi:
             bin_obj = pickle.dumps(embds_dict)
             fi.write(bin_obj)
-
+        print("*************     Embedding save Successfully    **************")
         #return pickle.dump((embds_dict), open("./embds_dict_ad.pkl", 'ab'))
         return embds_dict
 
@@ -137,10 +137,12 @@ class SAVE_EMBDED:
         embds_dict = dict(zip(nam, embd))
         # print("*********** embds_dict ************:",embds_dict)
         print("*************    Prepareing embedding for save     **************")
-        print("*************     Embedding save Successfully    **************")
+        
         with open("./embds_dict_ad.pkl", "wb") as fi:
             bin_obj = pickle.dumps(embds_dict)
             fi.write(bin_obj)
+            
+        print("*************     Embedding save Successfully    **************")
 
         #return pickle.dump((embds_dict), open("./embds_dict_ad.pkl", 'ab'))
         return embds_dict
