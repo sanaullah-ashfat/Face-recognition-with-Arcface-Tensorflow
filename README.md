@@ -26,3 +26,4 @@ Now paste it to the checkpoints folder.
 Test in postman:
 If you want to test using postman just run app.py then send bas64 data to the url. 
 
+You can find the official implementation here:   https://github.com/deepinsight/insightface
